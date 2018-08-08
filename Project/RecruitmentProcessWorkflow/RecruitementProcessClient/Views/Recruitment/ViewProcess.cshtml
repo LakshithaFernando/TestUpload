@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Applicant Status";
+}
+
+<h4>Applicant Status</h4>
+<div style="margin-top:20px">
+    <input type="text" placeholder="Enter Applicant No" id="txtApplicantNo" />
+    <input type="submit" id="btnSubmit" value="Search" />
+</div>
+
+<div id="tblData" class="result" style="margin-top :30px">
+    <table id="tblResult" class="table" style="display:none">
+        <thead>
+            <tr>
+                <th>Workflow Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div id="tblNoData" class="result" style="display:none;">
+    <h4>No data to display</h4>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+    @Scripts.Render("~/Scripts/recruitment.js")
+}

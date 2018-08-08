@@ -1,0 +1,47 @@
+﻿@model IEnumerable<RecruitmentProcessClient.Models.RecruitmentStep>
+
+@{
+    ViewBag.Title = "Workflows";
+}
+
+
+<h4>Workflows</h4>
+
+<p>
+    @Html.ActionLink("New Workflow", "Add", "Recruitment", null, null)
+</p>
+<table class="table" id="tbl">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Recruitment", "Recruitment", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Styles.Render("~/Content/recruitment.css")

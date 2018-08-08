@@ -1,0 +1,21 @@
+﻿.error-message {
+    border: 1px solid ##ff0000;
+    color: red;
+    font-size: medium;
+}
+
+.result{
+    margin-top : 30px;
+}
+
+.table th, .table td {
+    text-align : center
+}
+
+.table th{
+    font-size : 15px;
+}
+
+p {
+   margin-top : 40px;
+}
