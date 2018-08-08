@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RecruitmentProcessApi.DTOs;
+using RecruitmentProcessApi.Factory;
 using RecruitmentProcessApi.Models;
 using RecruitmentProcessApi.Repository;
 using System;
@@ -61,15 +62,12 @@ namespace RecruitmentProcessApi.Controllers
             {
                 if (selection != null)
                 {
-
-                    bool isSuccess = (selection.IsAseniorDeveloper && selection.IsGraduate
-                                                                        && (selection.YearsOfExperience >= 5));
-
+                    SelectionWorkflow selectionWorkflow = new SelectionWorkflow(selection);
                     var profile = new ApplicantProfile
                     {
                         ApplicantNo = applicantNo,
                         WorkFlowId = orderId,
-                        IsSuccess = isSuccess
+                        IsSuccess = selectionWorkflow.IsSuccess()
                     };
                     repository.Save(profile);
                     return Ok(profile);
@@ -91,14 +89,12 @@ namespace RecruitmentProcessApi.Controllers
             {
                 if (assessment != null)
                 {
-                    bool isSuccess = (assessment.IsCoreAPIused && (assessment.IsAngularUsed || assessment.IsMvcUsed)
-                                                                                                       && assessment.IsDIused);
-
+                    AssessmentWorkflow assessmentWorkflow = new AssessmentWorkflow(assessment);
                     var profile = new ApplicantProfile
                     {
                         ApplicantNo = applicantNo,
                         WorkFlowId = orderId,
-                        IsSuccess = isSuccess
+                        IsSuccess = assessmentWorkflow.IsSuccess()
                     };
                     repository.Save(profile);
                     return Ok(profile);
@@ -120,13 +116,12 @@ namespace RecruitmentProcessApi.Controllers
             {
                 if (technical != null)
                 {
-                    bool isSuccess = (technical.isKnowDesignPattern && technical.isKnowMVC);
-
+                    TechnicalWorkflow technicalWorkflow = new TechnicalWorkflow(technical);
                     var profile = new ApplicantProfile
                     {
                         ApplicantNo = applicantNo,
                         WorkFlowId = orderId,
-                        IsSuccess = isSuccess
+                        IsSuccess = technicalWorkflow.IsSuccess()
                     };
                     repository.Save(profile);
                     return Ok(profile);
@@ -148,12 +143,12 @@ namespace RecruitmentProcessApi.Controllers
             {
                 if (hr != null)
                 {
-                    bool isSuccess = (hr.NoticePeriod < 2 && hr.Salary <= 20000 && hr.IsEnglishFluent);
+                    HrWorkflow hrWorkflow = new HrWorkflow(hr);
                     var profile = new ApplicantProfile
                     {
                         ApplicantNo = applicantNo,
                         WorkFlowId = orderId,
-                        IsSuccess = isSuccess
+                        IsSuccess = hrWorkflow.IsSuccess()
                     };
                     repository.Save(profile);
                     return Ok(profile);
@@ -175,12 +170,12 @@ namespace RecruitmentProcessApi.Controllers
             {
                 if (final != null)
                 {
-                    bool isSuccess = (final.IsAteamPlayer && final.IsEnglishSpeaking && final.IsGoodPersonality);
+                    FinalWorkflow finalWorkflow = new FinalWorkflow(final);
                     var profile = new ApplicantProfile
                     {
                         ApplicantNo = applicantNo,
                         WorkFlowId = orderId,
-                        IsSuccess = isSuccess
+                        IsSuccess = finalWorkflow.IsSuccess()
                     };
                     repository.Save(profile);
                     return Ok(profile);

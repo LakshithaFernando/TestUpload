@@ -175,7 +175,6 @@ D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClie
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\bin\Microsoft.AI.WindowsServer.xml
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\bin\Microsoft.AI.Web.xml
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\obj\Debug\RecruitmentProcessClient.csprojAssemblyReference.cache
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\obj\Debug\RecruitmentProcessClient.csproj.CoreCompileInputs.cache
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\obj\Debug\RecruitmentProcessClient.csproj.CopyComplete
 D:\Lakshitha\Ascentic\Project\RecruitmentProcessWorkflow\RecruitementProcessClient\obj\Debug\RecruitementProcessClient.dll

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RecruitementProcessClient.Util;
 using RecruitmentProcessClient.Models;
 using System;
 using System.Collections.Generic;
@@ -81,21 +82,14 @@ namespace RecruitmentProcessClient.Controllers
                     }
                     else
                     {
-                        TempData["Error"] = "Invalid Data";
+                        TempData["Error"] = ErrorData.GetError(null, false);
 
                     }
                 }
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("501"))
-                {
-                    TempData["Error"] = "Sequence no cannot be duplicated.";
-                }
-                else
-                {
-                    TempData["Error"] = ex.Message;
-                }
+                TempData["Error"] = ErrorData.GetError(ex.Message);
             }
 
             return View();
@@ -125,21 +119,14 @@ namespace RecruitmentProcessClient.Controllers
                     }
                     else
                     {
-                        TempData["Error"] = "Invalid Data";
+                        TempData["Error"] = ErrorData.GetError(null, false);
 
                     }
                 }
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("501"))
-                {
-                    TempData["Error"] = "Sequence no cannot be duplicated.";
-                }
-                else
-                {
-                    TempData["Error"] = ex.Message;
-                }
+                TempData["Error"] = ErrorData.GetError(ex.Message);
             }
 
             return View("Add");
